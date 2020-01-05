@@ -24,7 +24,7 @@ def serve():
         if (opcode == 1):
             payload = payload.decode('utf-8')
             response_frame = websocket.encode_frame(
-                    websocket.OPCODES.index('text'), payload, False, True)
+                    websocket.OPCODES.index('text'), payload, False, False)
             conn.send(response_frame)
         else:
             break
