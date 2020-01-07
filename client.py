@@ -5,6 +5,11 @@ import websocket
 import sys
 
 def main():
+    if len(sys.argv) < 3:
+        print('Usage: ./client.py host port\n'\
+                'Example: ./client.py echo.websocket.org 80\n\n'\
+                'Note: does not support TLS')
+        quit()
     host = sys.argv[1]
     port = int(sys.argv[2])
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -14,6 +19,7 @@ def main():
     print('-'*20)
     print('Received handshake response:\n')
     print(handshake_response.decode())
+    print('type\'exit\' to close connection')
 
     while(1):
         payload = input('>> ')

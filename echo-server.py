@@ -5,6 +5,10 @@ import websocket
 import sys
 
 def serve():
+    if len(sys.argv) < 3:
+         print('Usage: ./echo-server.py host port\n'\
+                  'Example: ./echo-server.py 127.0.0.1 8080\n')
+         exit()
     host = sys.argv[1]
     port = int(sys.argv[2])
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
